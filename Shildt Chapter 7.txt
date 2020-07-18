@@ -1,0 +1,676 @@
+					7.1
+=======================================================================================
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+double gar(double a, double b);
+
+
+
+int main()
+{
+
+double x = 0;
+double y = 0;
+
+cin >> x >> y;
+
+while(x > 0 && y > 0)
+{
+   cout << gar(x, y) << endl;
+   cin >> x >> y;
+}
+cout << "se terminate";
+
+  return 0;
+}
+
+double gar(double a, double b)
+{
+    double C = 0;
+    double A = a;
+    double B = b;
+    C = (A + B)/2;
+    return C;
+
+}
+
+
+
+
+					7.2
+=======================================================================================
+
+#include <iostream>
+using namespace std;
+
+int *crArr(int arr[], int n);//создание и заполнение
+void arrShow(int arr[], int n);// вывод на экран
+int calc(int arr[], int n );
+
+
+int main()
+{
+    int size = 10;
+    int Arr[size];
+
+    cout << "Enter result or q to exit: ";
+
+    crArr(Arr, size);
+    arrShow(Arr, size);
+    cout << endl << calc(Arr, size);
+
+
+  return 0;
+}
+
+
+int* crArr(int arr[], int n)
+{
+    int count = n;
+
+    for (int i = 0; i < count; ++i)
+    {
+        arr[i] = 0;
+    }
+
+    for (int i = 0; i < count; ++i) //ввод результатов в массив
+    {
+       cin >> arr[i];
+       if (arr[i] == 'q')
+       {
+           break;
+       }
+    }
+return arr;
+}
+
+void arrShow(int arr[], int n)
+{
+    for (int i = 0; i < n; ++i)
+    {
+        cout << i+1 << ") " << arr[i] << "; ";
+    }
+}
+
+int calc(int arr[], int n)
+{
+    double R = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        R += arr[i];
+    }
+    return R;
+}
+
+
+
+					7.3(a)
+=====================================================================================
+
+
+#include <iostream>
+using namespace std;
+
+
+struct box
+{
+    char maker[10];
+    float height;
+    float width;
+    float length;
+    float volume;
+};
+
+
+void show(box a);
+
+int main()
+{
+
+    box A;
+    show(A);
+
+
+
+  return 0;
+}
+
+ void show(box a)
+{
+    int count = 0;
+    count = sizeof(a.maker);
+
+    cout << a.height;
+    cout << a.length;
+    cout << a.width;
+    cout << a.volume;
+
+    for (int i = 0; i < count; ++i)
+    {
+        a.maker[i] = 'B';
+        cout << a.maker[i] << endl;
+    }
+}
+
+
+					7.3(b)
+======================================================================================
+
+
+
+#include <iostream>
+using namespace std;
+
+
+struct box
+{
+    char maker[10];
+    float height;
+    float width;
+    float length;
+    float volume;
+};
+
+
+double calc(box *a);
+
+int main()
+{
+  box A;
+
+  cout << calc(&A);
+
+
+  return 0;
+
+}
+
+
+double calc(  box *a)
+{
+    cin >> a->height;
+    cin >> a->length;
+    cin >> a->width;
+
+    a->volume = a->height * a->width * a->length;
+
+    return a->volume;
+}
+
+
+					7.3(c)
+=======================================================================================
+
+#include <iostream>
+using namespace std;
+
+
+struct box
+{
+    char maker[10];
+    float height;
+    float width;
+    float length;
+    float volume;
+};
+
+
+double calc(box *a);
+void show(box *a);
+
+int main()
+{
+  box A;
+
+  cout << calc(&A) << endl;
+  show(&A);
+
+
+
+  return 0;
+
+}
+
+
+double calc(  box *a)
+{
+    cin >> a->height;
+    cin >> a->length;
+    cin >> a->width;
+
+    a->volume = a->height * a->width * a->length;
+
+    return a->volume;
+}
+
+void show(box *a)
+{
+   int count = 0;
+   count = sizeof(a->maker);
+
+   cout << a->height << endl;
+   cout << a->length << endl;
+   cout << a->width << endl;
+   cout << a->volume << endl;
+
+   for (int i = 0; i < count; ++i)
+   {
+       a->maker[i] = 'B';
+       cout << a->maker[i] << endl;
+   }
+}
+
+
+					7.4
+=======================================================================================
+
+#include <iostream>
+using namespace std;
+
+
+long double odds(unsigned num, unsigned picks, unsigned A);
+
+int main()
+{
+  double total, choice, a;
+
+  cout << "Enter: " << endl;
+
+
+  while ((cin >> total >> choice >> a) && choice <= total && a > 0)
+  {
+      cout << "you have one chance in ";
+      cout << odds(total, choice, a);
+      cout << " Next number or q to quit: ";
+  }
+
+
+  return 0;
+}
+
+
+
+
+
+long double odds(unsigned num, unsigned picks, unsigned A)
+{
+    long double result = 1.0;
+    double n;
+    unsigned p;
+    unsigned k = A;
+    for (n = num, p = picks; p > 0; n--, p--)
+    {
+        result = result * (n/p) * k;
+    }
+    return result;
+
+}
+
+
+
+
+					7.5
+=======================================================================================
+
+#include <iostream>
+using namespace std;
+
+
+double Fact(double n);
+
+int main()
+{
+
+    double N;
+    cout << "Enter num: ";
+    cin >> N;
+    cout << Fact(N);
+cout << endl;
+
+
+
+
+
+    double K = N;
+    for (int i = 1; i < N;)
+    {
+       K *= --N;
+
+
+    }
+    cout << K;
+
+
+  return 0;
+}
+
+double Fact(double n)
+{
+    double K = n;
+
+    while(n > 1)
+    {
+        K *= --n;
+        Fact(n);
+    }
+
+return K;
+
+}
+
+
+					7.6
+=======================================================================================
+
+
+#include <iostream>
+#include <cctype>
+#include <algorithm>
+using namespace std;
+
+int Fill_array(double rr[], int n);
+void Show_array(const double rr[], int n);
+void Revers_array(double rr[], int n);
+
+
+int main()
+{
+     const int num = 4;
+     double arr[num];
+
+
+     cout << "count = " <<  Fill_array(arr, num);
+     cout << endl;
+     Show_array(arr, num);
+     cout << endl;
+     Revers_array(arr, num);
+     cout << endl;
+     Show_array(arr, num);
+
+  return 0;
+}
+
+
+
+
+int Fill_array(double rr[], int n)
+{
+    int m = 0;
+
+    for (int i = 0; i < n; ++i)
+    {
+        rr[i] = 0;
+    }
+
+
+    cout << "Enter number: ";
+    for (int i = 0; i < n; ++i)
+    {
+
+        if (cin >> rr[i])
+        {
+            m++;
+        }
+    }
+
+return m;
+}
+
+
+void Show_array( const double urr[], int n)
+{
+    for (int i = 0; i < n; ++i)
+    {
+        cout << urr[i] << ", ";
+    }
+}
+
+
+void Revers_array(double err[], int n)
+{
+    int k = n;
+    for (int i = 0; i < n/2; ++i, k--)
+    {
+
+        swap(err[i], err[k-1]);
+
+    }
+
+}
+
+
+
+
+
+
+
+
+					7.7
+=======================================================================================
+
+
+#include <iostream>
+using namespace std;
+
+const int Max = 5;
+
+int fill_arrey(double ar[], int limit);
+void Show_arrey(const double ar[], int n);
+void revalue(double r, double ar[],int n);
+
+
+int main()
+{
+  double prop[Max]  ;
+  int size = fill_arrey(prop, Max);
+  Show_arrey(prop, size);
+  cout << "Enter factor: ";
+  double factor;
+  cin >> factor;
+  revalue(factor, prop, size);
+  Show_arrey(prop, size);
+  cout << "Done.\n";
+
+  return 0;
+}
+
+
+int fill_arrey(double ar[], int limit)
+{
+   double temp;
+   int i;
+   for (i = 0; i < limit; ++i)
+   {
+       cout << "Enter value: " << (i + 1) << ":";
+       cin >> temp;
+       if (!cin)
+           cin.clear();
+       while (cin.get() != '\n')
+        {
+           continue;
+       cout << "Bad input";
+       break;
+       ar[i] = temp;
+       }
+   else if(temp < 0)
+       break;
+
+   ar[i] = temp;
+  }
+
+    return i;
+}
+
+
+void Show_arrey(const double ar[], int n)
+{
+    for(int i = 0; i < n; ++i)
+   {
+        cout << "Prop #" << (i + 1) << ": $";
+    cout << ar[i] << endl;
+    }
+}
+
+void revalue(double r, double ar[], int n)
+{
+    for (int i = 0; i < n; ++i) {
+        ar[i] *= r;
+    }
+}
+
+
+
+					7.8
+=======================================================================================
+
+хуй его знает, о чем речь тут
+#include <iostream>
+using namespace std;
+
+const int SLEN = 30;
+struct student
+{
+  char fullname[SLEN];
+  char hobby [SLEN];
+  int ooplvl = 0;
+};
+
+int getinfo(student pa[], int n);//создание и заполение массива структур
+void display1(student st);//отображение содержимого структуры
+void display2(const student * ps);//оборажение структуры по ее адресу
+void display3(const student pa[], int n);
+
+
+
+int main()
+{
+
+int class_size;
+cout << "Enter class_size: ";
+cin >> class_size;
+while(cin.get() != '\n')
+    continue;
+student* ptr_stu = new student[class_size];//массив структур
+int entered = getinfo(ptr_stu, class_size);// кличество фактически
+                                           //заполненных структур
+
+//for (int i = 0; i < entered; ++i)
+//{
+//    display2(ptr_stu[i]);
+//    display2(&ptr_stu[i]);
+
+//}
+
+//display3(ptr_stu, entered);
+delete [] ptr_stu;
+cout << "Done\n";
+
+cout << entered;
+
+
+    return 0;
+}
+
+int getinfo(student pa[], int n)
+{
+    
+
+
+
+
+  return i ;
+
+}
+
+//void display1(student st)
+//{
+
+
+
+
+
+
+
+//}
+
+//void display2(const student * ps)
+//{
+
+//}
+
+//void display3(const student pa[], int n)
+//{
+
+//}
+
+
+
+
+
+
+					7.9
+=======================================================================================
+
+
+#include <iostream>
+using namespace std;
+
+double func (double y, double x);
+double calculate (double k, double t, double (*punc)(double y, double u));
+void inc (double k, double t);//вывод  данных на экран
+
+
+int main()
+{
+    double a = 0;
+    double b = 0;
+
+double (*pfunc)(double m, double n);
+pfunc = func;
+
+calculate(a, b, pfunc);
+
+
+
+
+
+    return 0;
+}
+
+
+
+
+double func(double m, double n)
+{
+    inc(m, n);
+
+  return m + n;
+
+}
+
+
+double calculate(double k, double t, double (*punc)(double y, double u))
+{
+
+    cout << "enter two number: \n";
+    cin >> k;
+    cin >> t;
+
+
+
+    //функци€ должна принимать данные от пользовател€,использу€ цикл
+    //и передавать эти данные в функцию func
+    return punc(k, t);
+}
+
+
+void inc (double k, double t)
+{
+    cout << "a= " << k << endl;
+    cout << "b= " << t << endl;
+
+}
+
+

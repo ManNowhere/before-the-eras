@@ -1,0 +1,1002 @@
+------------------------------10/1----------------------------------------------
+
+
+MAIN
+
+
+#include <iostream>
+#include <cstring>
+#include <account.h>
+using namespace std;
+
+
+int main()
+{
+    int a = 0;
+    int b = 0;
+    string S;
+    cout << "enter a: ";
+    cin >> a;
+    cout << "enter b: ";
+    cin >> b;
+
+
+    Accaunt cast;
+    cast.set_saldo(a, b);
+    cout << "enter NewName: ";
+    cin >> S;
+    cast.set_N(S);
+    cout << "enter NewName: ";
+    cin >> S;
+    cast.set_AN(S);
+    cout << cast.show_N() << endl;
+    cout << cast.show_AN();
+
+
+
+
+
+
+
+
+  return 0;
+ }
+------------------------
+heder
+
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+#include <cstring>
+
+
+class Accaunt
+{
+public:
+    Accaunt();
+
+    ~Accaunt();//деструктор
+
+
+    void set_saldo(int a, int b);//разница доходов и расходов
+
+
+    const std::string &  show_N() const;
+
+
+    const std::string& show_AN() const;
+
+
+    void set_N(std::string NewName);
+
+
+    void set_AN(std::string NewName);
+
+
+
+
+private:
+    std::string Name;//им€ вкладчика
+    std::string ANum;//номер счета
+    int balance;//сальдо
+
+
+};
+#endif // ACCOUNT_H
+-------------------------------------
+CPP
+
+#include <iostream>
+#include <cstring>
+#include "account.h"
+using namespace std;
+
+
+  Accaunt::Accaunt()
+    :
+    Name("no name"),
+    ANum("nothing"),
+    balance ( 0)
+    {}
+
+   Accaunt::~Accaunt()
+  {}
+
+    void Accaunt::set_saldo(int a, int b)//разница доходов и расходов
+    {
+        balance = a - b;
+    }
+
+    const string& Accaunt::show_N()const
+    {
+        return Name;
+    }
+
+    const string& Accaunt::show_AN()const
+    {
+        return ANum;
+    }
+
+    void Accaunt::set_N(string NewName)
+    {
+      Name = NewName;
+
+    }
+
+    void Accaunt::set_AN(string NewName)
+    {
+       ANum = NewName;
+    }
+
+
+
+------------------------------------------10.2---------------------------------------------------
+
+main
+
+
+
+#include <iostream>
+#include <cstring>
+#include "account.h"
+using namespace std;
+
+
+int main()
+{
+string Name;
+int gan = 0;
+
+
+setgolf(Name, gan);
+
+
+golf One(Name, gan);
+One.show();
+
+
+  return 0;
+ }
+
+-----------------------
+
+heder
+
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+#include <cstring>
+
+
+class golf
+{
+public:
+    golf();//конструктор по умолчанию
+    golf(const std::string & Name, int& gan);
+
+    ~golf();//деструктор
+
+    void show();
+
+private:
+  int gandicap;
+  std::string fullname;
+
+
+};
+
+int setgolf( std::string &, int & );
+
+#endif // ACCOUNT_H
+
+------------------------
+CPP
+
+#include <iostream>
+#include <string>
+#include "account.h"
+using namespace std;
+
+
+   golf::golf()//конструктор по умолчанию
+    {}
+
+   golf::golf(const string & A, int &B)
+     {
+       this->fullname = A;
+       this->gandicap = B;
+     }
+
+   golf::~golf()
+     {}
+
+   void golf::show()
+   {
+       cout << gandicap<< endl << fullname;
+   }
+
+
+int setgolf(string & NAME, int &A)
+{
+    cout << "enter Name: ";
+    getline(cin, NAME);
+    cout << "enter gandicap: ";
+    cin >> A;
+    return A;
+}
+
+
+
+
+------------------------------------10.3------------------------------------------
+
+
+main:
+
+#include <iostream>
+#include <cstring>
+#include "account.h"
+#include <ctime>
+
+
+using namespace std;
+
+int main()
+{
+const int size = 10;
+double arr[size];
+
+srand(time(0));
+    Arr(arr, size);
+    for (int i = 0; i < size; ++i)
+    {
+        cout << arr[i] << "; ";
+    }
+cout << endl;
+
+
+  SALES::Sales one(arr,size);
+  one.show();
+
+  return 0;
+ }
+
+----------------------
+
+
+
+hader:
+
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+#include <cstring>
+namespace SALES
+{
+class Sales
+{
+public:
+    Sales();
+    Sales(double *T, int i);
+    ~Sales();
+
+
+
+
+
+
+void  setArr(double *, int m);
+
+
+void show();
+
+
+   private:
+    static const int count = 10;
+    double sales[count];
+    double average;
+    int max;
+    int min;
+
+};
+
+}
+
+void Arr(double *O, int m);
+
+#endif // ACCOUNT_H
+
+
+
+
+#endif // ACCOUNT_H
+
+
+--------------------------
+
+CPP:
+
+#include <iostream>
+#include <string>
+#include "account.h"
+using namespace std;
+namespace SALES
+{
+Sales::Sales()
+    {}
+ Sales::Sales(double *T, int i)
+ {
+    Sales::setArr(T, i);
+ }
+Sales::~Sales()
+ {}
+
+
+
+void  Sales::setArr(double *P, int n)
+{
+    for (int i = 0; i < n; ++i)
+    {
+
+        sales[i] = P[i];
+        if (i >3)
+        {
+            sales[i]= 0;
+        }
+//        cout << sales[i] << "; ";
+    }
+}
+
+
+void Sales::show()
+{
+    for (int i = 0; i < count; ++i)
+    {
+        cout << sales[i] << "; ";
+    }
+}
+
+}
+
+void Arr(double *p, int n)//заполнение массива значени€ми
+{
+    int m;
+    for (int i = 0; i < n; ++i)
+    {
+        m = 1+ rand() % 10;
+        p[i] = m;
+
+    }
+}
+
+
+
+
+
+
+
+------------------------------------10.4------------------------------------------
+
+
+main
+
+#include <iostream>
+using namespace std;
+#include "account.h"
+
+
+
+int main()
+{
+
+
+Item number;
+
+cout << "enter Name: ";
+cin >> number.fullname;
+cout << "enter pay: ";
+cin >> number.payment;
+
+char liter;
+cout << "enter  A, P or Q for exit: ";
+cin >> liter;
+
+Stack one;
+//one.push(number);
+
+
+while (liter != 'q' && liter != 'Q')
+{
+
+    switch (liter)
+    {
+        case 'a':
+        case 'A':
+        one.push(number);
+        break;
+        case 'p':
+        case 'P':
+        one.pop(number);
+        cout << endl << number.fullname << "; " << number.payment;
+        break;
+
+
+        default:
+        cout << "Enter correct option: ";
+            break;
+    }
+    cin >> liter;
+
+}
+
+
+    return 0;
+}
+
+
+------------------------
+
+hader
+
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+typedef struct
+{
+    char fullname[35];//им€ заказчика
+    double payment;// платеж заказчика
+} Item;
+
+class Stack
+{
+
+public:
+    Stack();
+    ~Stack();
+    bool isempty()const;
+
+    bool isfull()const;
+
+    bool push(const Item & item);//добавл€ет элемент в стек
+
+    bool pop(Item & item);// выталкивает элемент из стека
+
+
+
+private:
+    enum{MAX = 10};//константа дл€ класса
+    Item items[MAX];// массив структур, в данном случае
+    int top;//указатель элемента на вершине стека
+
+
+};
+
+
+
+
+#endif // ACCOUNT_H
+
+--------------------------------
+
+CPP
+
+#include <iostream>
+#include "account.h"
+using namespace std;
+
+Stack::Stack()
+{
+    top = 0;
+}
+ Stack::~Stack()
+ {}
+
+bool Stack::isempty() const
+{
+    return top == 0;
+}
+
+bool Stack::isfull() const
+{
+    return top == MAX;
+}
+
+bool Stack::push(const Item & item)
+{
+    if(top < MAX)
+    {
+        items[top++] = item;
+        return true;
+    }
+    else
+        return false;
+}
+
+bool Stack::pop(Item & item)
+{
+    if(top > 0)
+    {
+        item = items[--top];
+        return true;
+    }
+    else
+        return false;
+}
+
+
+
+
+
+
+------------------------------------10.5------------------------------------------
+
+
+main
+
+#include <iostream>
+using namespace std;
+#include "account.h"
+
+
+
+int main()
+{
+
+double a ;
+double b ;
+cout << "enter a and b: ";
+cin >> a;
+cin >> b;
+
+Move One(a,b),Two(a,b);
+One.showmove();
+cout << endl;
+One.reset(a+b,b*a);
+One.showmove();
+
+
+Two = One.add(One);
+cout << endl;
+Two.showmove();
+
+
+    return 0;
+}
+
+--------------------------------
+
+
+hader
+
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+
+class Move
+{
+public:
+    Move();
+    Move(double , double );
+    Move(const Move & obj);
+    ~Move();
+
+   void showmove()const;
+   Move add(const Move & M)const;
+   void reset(double a = 0, double b = 0);
+
+
+
+
+private:
+    double x;
+    double y;
+
+
+};
+
+
+
+
+
+
+void set(double &, double &);
+
+
+
+
+
+#endif // ACCOUNT_H
+
+
+---------------------------------
+
+CPP
+
+#include <iostream>
+#include "account.h"
+using namespace std;
+
+   Move::Move()//по умолчанию
+      {}
+
+   Move::Move(double a = 0 , double b = 0)//конструктор с параметрами
+    {
+       reset(a, b);
+    }
+
+   Move::Move(const Move & obj)//конструктор копировани€
+       {
+        reset(obj.x, obj.y);
+       }
+
+   Move::~Move()
+    {}
+
+   Move Move::add(const Move & M)const
+   {
+
+
+       Move Two(this->x, this->y + M.y);
+       return Two;
+   }
+
+    void Move::showmove()const
+    {
+        cout << "x= " << x << "; " << "y= "<< y;
+    }
+
+
+
+    void Move::reset( double a , double b)
+    {
+        x = a;
+        y = b;
+    }
+
+
+
+
+
+------------------------------------10.6------------------------------------------
+
+
+main
+#include <iostream>
+using namespace std;
+#include "account.h"
+
+
+
+int main()
+{
+    int num = 0;
+    cin >> num;
+
+
+plorg One;
+One.showName();
+cout << One.showCI() << endl;
+One.SetCI(num);
+cout << One.showCI() << endl;
+
+
+
+
+    return 0;
+}
+
+
+-----------------------
+
+hader
+
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+#include <string>
+class plorg
+{
+public:
+
+plorg();
+
+~plorg();
+
+
+
+void SetCI(int);
+int showCI();
+void showName();
+
+
+private:
+
+
+
+    char Name[19] ={'P','l','o','r','g'} ;
+    int CI = 50;
+
+};
+
+#endif // ACCOUNT_H
+
+
+------------------------------------
+
+CPP
+
+
+#include <iostream>
+#include "account.h"
+#include <cstring>
+using namespace std;
+
+plorg::plorg()
+    {}
+
+
+plorg::~plorg()
+    {}
+
+
+
+
+
+    void plorg::SetCI(int A)
+        {
+
+           CI = A;
+        }
+
+    void plorg::showName()
+    {
+        cout << Name << endl;
+    }
+
+    int plorg::showCI()
+    {
+        return CI;
+    }
+
+
+
+------------------------------------10.7------------------------------------------
+
+
+main
+
+#include <iostream>
+using namespace std;
+#include "account.h"
+#include <ctime>
+
+
+
+int main()
+{
+    srand(time(0));
+    int p = 5;
+
+List One(p);
+One.Show();
+One.showC();
+cout << endl;
+One.set_elem();
+One.Show();
+cout << endl;
+One.add_elem(2);
+One.Show();
+One.showC();
+
+
+
+
+
+    return 0;
+}
+
+
+
+//список может содержать нуль или более элем.
+//можно создать пустой список
+//можно проверить пуст ли список
+//можно проверить полон ли список
+// должен быть доступ к каждому элементу списка
+// можно добавить элемент, но нельз€ удалить
+
+------------------------------------------
+
+
+hader
+
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+#include <ctime>
+
+class List
+{
+public:
+    List();
+    List(int);
+    ~List();
+
+
+    static int Num;//кличество элементов в списке
+    static int Count;// счетчик
+                     //элементов массива
+
+    void Show();//вывод массива
+
+    void showC();//вывод счетчика элементов
+
+    void set_elem();//установка значений
+
+    void check_list();//проверка переменной объекта-
+                    //num - отличие от нул€.
+
+
+     void add_elem( int n);//добавление элемента
+                           //num - количество добавл€емых
+                           //элементов
+
+
+
+
+
+
+                    //доступ к любому элементу
+
+
+
+
+
+
+
+
+
+
+  private:
+
+    class Obj
+      {
+      public:
+
+          Obj()
+          {
+              this->num = 0;
+              ++Count;
+          }
+
+          int showNum()
+          {
+              return num;
+          }
+
+          void SetNum(int count)
+          {
+              num = count;
+          }
+
+      private:
+          int num;
+
+      };
+
+    Obj* pr;
+    Obj* RetAr()
+    {
+        return pr;
+    }
+
+  };
+
+  #endif // ACCOUNT_H
+
+--------------------------------------------
+
+CPP
+
+#include <iostream>
+#include "account.h"
+
+
+List::List()
+{
+    std::cout<<"constr List\n";
+    if(!Num)
+    {
+        std::cout << "List is 0 elements\n";
+
+    }
+}
+
+List::List(int a)
+{
+    Num = a;
+
+    pr= new Obj[Num]();
+
+    for (int i = 0; i < Num; ++i)
+      {
+        pr[i].showNum();
+      }
+}
+
+List::~List()
+{
+    delete [] pr;
+//    std::cout<<"\ndestr List\n";
+
+}
+
+
+void List::Show()
+{
+
+   for (int i = 0; i < Num; ++i)
+     {
+          std::cout <<  pr[i].showNum() << std:: endl;
+     }
+
+}
+
+void List::set_elem()
+{
+    for (int i = 0; i < Num; ++i)
+      {
+           pr[i].SetNum(1 + rand() % 10);
+      }
+}
+
+void List::showC()
+{
+    std::cout << "Count = " << Count;
+}
+
+void List::check_list()
+{
+    if (!pr[0].showNum())
+    {
+        std::cout << "list is not empty" << std:: endl;
+    }
+    else
+    {
+        std::cout<<"create empty list\n";
+    }
+}
+
+
+void List::add_elem(int n)
+{
+     int a = Num + n;
+     Obj *ptr = new Obj[a];
+     for (int i = 0; i < a; ++i)
+     {
+        if (i < Num)
+            {
+                ptr[i] = pr[i];
+            }
+         else
+            {
+                ptr[i].SetNum(i);
+            }
+     }
+
+     delete[] pr;
+     pr = ptr;
+     Count = Num = a;
+
+}
+
+
+
+
+
+
+
+int List::Count = 0;
+
+int List::Num = 0;
+
+----------------------------------
+
+
+
+
+
+
+

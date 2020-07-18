@@ -1,0 +1,280 @@
+5.1
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+int f;
+int s;
+cout << "Enter number: ";
+cin >> f >> s;
+if (f > s)
+{
+    
+    f = s + f;
+    s = f - s;
+    f = f - s;
+}
+int count = 0;
+for (int i = f; i <= s; ++i)
+{
+    count += (int)i;
+};
+cout << count;
+
+    return 0;
+}
+--------------------------------------------------
+5.2
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+
+int x = 0;
+int y = x;
+cout << "enter num: ";
+do{
+    cin >> x;
+    y += x;
+    cout << y << endl;
+}
+while (x != 0);
+
+    return 0;
+}
+--------------------------------------------------
+5.3
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+int Deposit = 100;// сумма вклада
+float D = 0.05;//процентна€ ставка
+float K = D * 2;
+double DRate = Deposit;// итогова€ сумма
+double KRate = Deposit;// итогова€ сумма
+int Date = 1;//срок вклада в годах
+
+// cout << "enter Date: ";
+// cin >> Date;
+
+for(int i = Date; i < 100; i++)
+{
+
+   DRate += (DRate * D);
+   KRate += (Deposit * K);
+
+   if (KRate < DRate)
+   {
+       cout << i << "year" << endl;
+       break;
+   }
+
+}
+cout << "DRate= " << DRate << " ," << " KRate= " << KRate;
+    return 0;
+}
+
+--------------------------------------------------
+5.4
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+    const int num = 12;
+    int * ptr = new int[num];// количество проданныъ книг
+    char **Mounth = new char*[num];//название мес€ца
+    int summ = 0;
+
+  Mounth[0] = "jr";
+  Mounth[1] = "f";
+  Mounth[2] = "Mr";
+  Mounth[3] = "Ap";
+  Mounth[4] = "M";
+  Mounth[5] = "jn";
+  Mounth[6] = "jl";
+  Mounth[7] = "a";
+  Mounth[8] = "s";
+  Mounth[9] = "o";
+  Mounth[10] = "n";
+  Mounth[11] = "d";
+
+  for (int i = 0; i < num; ++i)
+  {
+      cout << "enter count book: ";
+      cin >> ptr[i];
+  }
+  for (int i = 0; i < num; ++i)
+  {
+     cout << Mounth[i] << "-" << ptr[i] << endl;
+     summ += ptr[i];
+  }
+  cout <<  "summ = " << summ;
+
+
+    return 0;
+}
+--------------------------------------------------
+5.5
+
+#include <iostream>
+#include <cstring>
+#include <iomanip>
+using namespace std;
+
+char *Mounth[] = {"Jr", "F", "Mr", "Ap", "M", "Jn", "J", "Au", "Sp", "Ok", "N", "D"};
+
+
+int main()
+{
+int M = 12;
+int Y = 3;
+int** data = new int*[3];
+for (int i = 0; i < Y; ++i)//создание двуиерного массива интов
+{
+    data[i] = new int[M];
+}
+
+for (int i = 0; i < M; ++i)//вывод массива чаров на экран
+{
+    cout << setw(3) << Mounth[i];
+
+}
+cout << endl;
+
+for (int i = 0; i < Y; ++i)//вывод массива интов на экран
+{
+    cout << endl;
+    for (int j = 0; j < M; ++j)
+    {
+        data[i][j] = 0;
+        cout << setw(3) << data[i][j];
+    }
+    cout << endl;
+}
+
+
+for (int i = 0; i < Y; ++i)//вывод заполненного массва интов на экран
+{
+    cout << endl;
+    for (int j = 0; j < M; ++j)
+    {
+        cout <<setw(3) << data[i][j];
+    }
+    cout << endl;
+}
+
+for (int i = 0; i < Y; ++i)//удаление интов
+{
+   delete [] data[i];
+}
+
+for (int i = 0; i < M; ++i)//удаление массива чаров
+{
+    Mounth[i] = NULL;
+}
+
+
+
+    return 0;
+}
+
+--------------------------------------------------
+5.6
+
+#include <iostream>
+#include <cstring>
+#include <iomanip>
+using namespace std;
+
+struct Car
+{
+ char Name[10];
+ int Made = 0;
+};
+
+int Ct = 0;//количество машин в списке
+
+int main()
+{
+
+ cout << "Enter amount: ";
+ cin >> Ct;
+ cin.get();
+
+ Car * ptr = new Car[Ct];
+
+
+for (int i = 0; i < Ct; i++)
+{
+    cout << "Enter name: ";
+    cin.getline(ptr[i].Name, 10);
+    cout << "Enter made: ";
+    cin >> ptr[i].Made;
+    cin.get();
+
+}
+
+for (int i = 0; i < Ct; ++i)
+{
+    cout << ptr[i].Name << "(" << ptr[i].Made << ")" << endl;
+}
+
+
+delete []ptr;
+  return 0;
+}
+
+--------------------------------------------------
+5.7
+
+#include <iostream>
+#include <cstring>
+#include <iomanip>
+using namespace std;
+
+char B = 42;
+int A = 0;
+
+int main()
+{
+
+    cout << "Enter amount: ";
+    cin >> A;
+
+    for (int i = 0; i < A; ++i)
+    {
+
+        for (int j = 0; j < (A-i)-1 ; ++j)
+        {
+            cout << ".";
+        }
+        for (int k = 0; k < A- (A-i)+1; ++k)
+        {
+          cout << "*";
+        }
+        cout << " " << endl;
+    }
+
+
+
+
+  return 0;
+}

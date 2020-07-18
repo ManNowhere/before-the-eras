@@ -1,0 +1,142 @@
+4.1
+#include <iostream>
+#include <cstring>
+using namespace std;
+const int arr = 20;
+char Name[arr];
+char LastName[arr];
+const int arrGrade = 4;
+char Grade[arrGrade];
+short age;
+int main(int argc, char *argv[])
+{
+cout << "what is your first name? \n" << (char)95 << (char)95 << (char)95 << (char)95 << (char)95 << "\r" ;
+cin.get(Name, arr).get();
+cout << "what is your last siername?  \n"<< (char)95 << (char)95 << (char)95 << (char)95 << (char)95 << "\r";
+cin.get(LastName, arr).get();
+cout << "what latter do you deserve?  \n"<< (char)95 << (char)95 << (char)95 << (char)95 << (char)95 << "\r";
+cin.get(Grade, arrGrade).get();
+*Grade  = *Grade + 1;
+cout << " what is yuo age?  \n"<< (char)95 << (char)95 << (char)95 << (char)95 << (char)95 << "\r";
+cin >> age;
+cout << "Name: " << Name << "\n";
+cout << "LastName: " << LastName << "\n";
+cout << "Grade: " << Grade  << "\n";
+cout << "age: " << age;
+
+    return 0;
+}
+-------------------------------------------------------
+4.2
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+
+struct CandyBar
+{
+    char Name [20];
+    float Grad;
+    int price;
+};
+
+int main(int argc, char *argv[])
+{
+
+CandyBar snac =
+{
+    "Mocha Munch",
+    2.3,
+    300
+};
+
+cout << snac.Name  << "\n" << snac.Grad << "\n" << snac.price;
+
+
+
+    return 0;
+}
+-------------------------------------------------------
+4.3
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+
+struct CandyBar
+{
+    char Name [20];//имя
+    float Grad;// вес
+    int price;//килкаллории
+};
+
+int main(int argc, char *argv[])
+{
+CandyBar snac1{"Pechivo", 120, 200};
+CandyBar snac2{"Wafelca", 110, 150};
+CandyBar snac3{"Eda", 258, 500};
+
+cout << snac1.Name  << "\n" << snac1.Grad << "\n" << snac1.price << endl;
+cout << snac2.Name  << "\n" << snac2.Grad << "\n" << snac2.price << endl;
+cout << snac3.Name  << "\n" << snac3.Grad << "\n" << snac3.price << endl;
+
+    return 0;
+}
+-------------------------------------------------------
+4.4
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+struct Food
+{
+    char Name[20];
+    int R;
+    int G;
+};
+
+
+int main(int argc, char *argv[])
+{
+    Food pizza;
+   cout << "which you want pizza?";
+   cin.get(pizza.Name, 20);
+   cout << "what r?";
+   cin >> pizza.R;
+   cout << "what Grad?";
+   cin >> pizza.G;
+   cout << pizza.Name << "\n" << pizza.R << "\n" << pizza.G;
+    return 0;
+}
+-------------------------------------------------------
+4.5
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+struct Food
+{
+    char Name[20];
+    int R;
+    int G;
+};
+
+
+int main(int argc, char *argv[])
+{
+
+   Food * ptr = new Food;
+   cout << "what r?";//диаметр пиццы
+   (cin >> ptr -> R).get();
+    cout << "which you want pizza?";//название производителя пиццы
+    cin.getline(ptr -> Name, 20);
+    cout << "what Grad?"; //вес пиццы
+    cin >> ptr -> G;
+    cout << ptr -> Name << "\n" << ptr -> R << "\n" << ptr -> G;
+delete ptr;
+
+
+    return 0;
+}
+

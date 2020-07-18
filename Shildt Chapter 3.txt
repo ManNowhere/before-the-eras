@@ -1,0 +1,91 @@
+3.1
+#include <iostream>
+
+using namespace std;
+
+
+double space();
+
+int main(int argc, char *argv[])
+{
+    short Growth = 0;
+    const float P = 2.45;
+ cout << "enter your growth:";
+ cin >> Growth;
+ cout << "your growth = " << Growth * P;
+
+
+    return 0;
+}
+
+---------------------------------------------------------------------
+3.2
+
+#include <iostream>
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+  float F = 0;//рост в футах
+  short D = 0;//рост в дюймах
+  double Metr = 0;//рост в метрах
+  const short G = 12;//количестов дюймов в футе
+  short M = 0;//вес в фунтах
+  short kg = 0;//вес в килограммах
+  const float Growth = 0.0254;//коеффициент роста
+  const float mass = 2.2;//коеффициент веса
+  short IMT = 0;
+
+  cout << "enter your growth: ";
+  cin >> F >> D;
+  cout << " enter your mass: ";
+  cin >> M;
+  Metr = ((F * G + D) * Growth);
+  kg = M / mass;
+  Metr *= 10000;
+  Metr = ( Metr - (int ((Metr)+1) % 100)) / 10000;
+
+
+  cout << Metr << endl << kg << endl;
+  IMT = kg / (Metr * Metr);
+  cout << IMT;
+
+    return 0;
+
+}
+
+
+---------------------------------------------------------------------
+3.3
+  float S = 0;//пройденный путь
+  float Gas= 0;// потраченное топливо
+//  float T = 0;//расход топлива
+  cout << "enter your way: ";
+  cin >> S;
+  cout << "enter gas: ";
+  cin >> Gas;
+  cout << (Gas * 100) / S;
+
+---------------------------------------------------------------------
+3.4
+#include <iostream>
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+float litrs = 0;
+float kmtrs = 0;
+float Gallon = 3.875;
+float Mill = 1.6;
+float gallons = 0;
+float mill = 0;
+cout << "enter EuG: " << '\n';
+cin >> kmtrs;
+        cin >> litrs;
+mill = kmtrs / Mill;
+gallons = litrs / Gallon;
+cout << "USG = " << mill / gallons << " mills/gallon";
+    return 0;
+
+}
+

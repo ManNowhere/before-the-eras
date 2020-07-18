@@ -1,0 +1,301 @@
+6.1
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+
+
+int main()
+{
+
+    char ch;
+   cin >> ch;
+
+
+    while (!(ispunct(ch)))
+    {
+       if (isupper(ch))
+       {
+
+           cout << (char)tolower(ch) << endl;
+       }
+     else
+           if (islower(ch))
+      {
+
+
+          cout << (char)toupper(ch) << endl;
+      }
+
+      cin >> ch;
+    }
+
+
+
+  return 0;
+}
+-------------------------------------------
+6.2
+
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+
+
+int main()
+{
+    int A = 0;// количество взносов выше среднего
+   double B = 0;// сумма взноса
+    const int num = 4;
+    double Arr[num] = {};
+
+    for (int i = 0; i < num; i++)
+    {
+
+        cin >> Arr[i];
+        isdigit(Arr[i]);
+         if (isalpha(Arr[i]))
+             break;
+         B += Arr[i];
+    }
+
+    cout << "sfershitul" << endl;
+    for (int i = 0; i < num; ++i)
+    {
+        cout << Arr[i] << endl;
+    }
+    cout << B / num;// средн€€ сумма взноса
+    for (int i = 0; i < num; ++i)
+    {
+        double a= B / num;
+        if (Arr[i] > a)
+            A++;
+    }
+    cout << endl;
+    cout << "A = " << A;
+
+
+
+
+
+
+
+  return 0;
+}
+
+-------------------------------------------
+6.3
+
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+
+void Menu();
+
+
+
+
+
+
+int main()
+{
+    char num;
+ Menu();
+     cin >> num;
+     while(num != 'Q' && num != 'q')
+     {
+         switch (num)
+         {
+         case'a':
+         case 'A':
+             cout << "Borjch\n";
+             break;
+
+         case'b':
+         case 'B':
+             cout << "Pasta\n";
+             break;
+
+         case 'c':
+         case 'C':
+             cout <<
+                     "Buhlo\n";
+             break;
+
+         case 'd':
+         case 'D':
+         cout << "Prosto eda\n";
+             break;
+
+         default:
+             cout << "Enter correct option: " << endl;
+         }
+         cin >> num;
+     }
+
+
+  return 0;
+}
+
+
+void Menu()
+{
+    cout << "Enter  a, b, c, d to continue or q for quit: " << endl;
+    cout << "a) \n" << "   Mine dishes.\n";
+    cout << "b) \n" << "   snacks.\n";
+    cout << "c) \n" << "   drinks.\n";
+    cout << "d) \n" << "   dessert.\n";
+
+}
+-------------------------------------------
+6.4
+
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+const int a = 20;
+
+struct BOP
+{
+    char Fullname[a];
+    char Title[a];
+    char bopname[a];
+//    int Taknado;
+};
+
+const int num = 3;
+ BOP arr[num] =
+ {
+     {"FG Nui", "O", "SSD"},
+     {"Ui Pigg", "G", "MAtherboard"},
+     {"Krya Uf", "N", "USB 2.0"}
+
+ };
+
+void Menu();
+
+
+int main()
+{
+char letter;
+
+Menu();
+cout << "Enter your option: ";
+cin >> letter;
+
+while(letter != 'q' && letter !='Q')
+{
+    switch (letter) {
+        case 'a':
+        case 'A':
+        for (int i = 0; i < num; ++i)
+        {
+            cout << arr[i].Fullname << "\n";
+        }
+        break;
+
+        case 'b':
+        case 'B':
+        for (int i = 0; i < num; ++i)
+        {
+            cout << arr[i].Title << "\n";
+        }
+        break;
+
+        case 'c':
+        case 'C':
+        for (int i = 0; i < num; ++i)
+        {
+            cout << arr[i].bopname << "\n";
+        }
+        break;
+
+        case 'd':
+        case 'D':
+        for (int i = 0; i < num; ++i)
+        {
+            cout << arr[i].Fullname << ", " << arr[i].Title << ", " <<arr[i].bopname ;
+        }
+
+        break;
+
+    default:
+        cout << "Enter correct option: ";
+    }
+    cin >> letter;
+
+}
+
+
+
+
+
+
+
+
+  return 0;
+}
+
+void Menu()
+{
+    cout << "Enter  a, b, c, d to continue or q for quit: " << endl;
+        cout << "a) \n" << "   Fullname.\n";
+        cout << "b) \n" << "   Title.\n";
+        cout << "c) \n" << "   bopname.\n";
+        cout << "d) \n" << "   Info.\n";
+        cout << "q) \n" << "   quit.\n";
+}
+
+-------------------------------------------
+6.5
+
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+
+int main()
+{
+
+int Many = 0;//переменна€ дл€ ввода денег
+int B = 0;//сумма налога
+int A = 0;
+float a = 0.1;
+float b = 0.15;
+float c = 0.2;//ставки налога
+
+
+
+cout << "Enter Many: ";
+cin >> Many;
+
+  if(Many > 35000)
+  {
+      A = c * (Many - 35000);
+      B +=A;
+      B += (20000 * b) + (10000 * a);
+      cout << B;
+  }
+  else
+      if(Many > 20000 && Many <= 35000)
+          {
+              A = b * (Many - 15000) + (10000 * a);
+              B += A;
+              cout << B;
+          }
+
+  else
+      if(Many > 5000 && Many <= 15000 )
+      {
+          B += a* (Many - 5000);
+          cout << B;
+      }
+
+
+
+  return 0;
+}
+
