@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+/**
+ * Auto-generated code below aims at helping you parse 20000000
+ * the standard input according to the problem statement.
+ **/
+
+int main()
+{
+    long long r1;
+    cin >> r1; cin.ignore();
+    long long r2;
+    cin >> r2; cin.ignore();
+    int summ1 = r1;//сумма цифр числа
+    int summ2 = r2;
+
+
+ while(r1 != r2)
+ {
+     if(r1 < r2 )
+     {
+         while (r1 != 0)
+         {
+             int i = 10;
+             summ1 += r1 % i;
+             r1 = (r1 - (r1 % i)) / i;
+         }
+         r1 = summ1;
+
+     }
+     else if(r1 > r2)
+     {
+        while (r2 != 0)
+         {
+             int i = 10;
+             summ2 += r2 % i;
+             r2 = (r2 - (r2 % i)) / i;
+         }
+             r2 = summ2;
+
+     }
+ }
+
+ cout << to_string(r1);
+
+
+//    cout << "42" << endl;
+}

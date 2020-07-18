@@ -1,0 +1,1109 @@
+
+
+Easy
+--------------------------------
+2)
+#include <iostream>
+
+using namespace std;
+
+int q(int a, int b)//а - цифра, которую возводим в степень, b -  степень числа
+{
+    int t = a;
+    for (int j = 1; j < b; ++j)
+    {
+
+      t *= a;
+
+    }
+
+    return t;
+}
+
+
+
+int main()
+{
+    int num = 0;// ввод кличествао суммирумеых чисел
+    int count = 0;// ввод степени числа
+    int T = 0;//с какой цифры начало отсчета
+    int summ = 0;
+    cout << "Enter T: ";
+    cin >> T;
+    cout << "Enter num: ";
+    cin >> num;
+    cout << "Enter count: ";
+    cin >> count;
+
+
+    for (int i = 0; i < num; i++)
+    {
+       summ += q(T, count);
+       T++;
+
+    }
+
+    cout << summ;
+
+
+    return 0;
+}
+
+
+-------------------------------
+3)
+
+#include <iostream>
+
+using namespace std;
+
+
+
+
+
+int main()
+{
+    int a = 0;
+    int b = 0;
+    cout << "Enter num from 0 to 99: ";
+    cin >> a;
+
+    b = a % 10;
+    a = (a - b)/10;
+    if (a > b)
+        cout << "more " <<  a << ", less " << b;
+    else
+        cout << "more " <<  b << ", less " << a;
+
+    return 0;
+}
+
+
+-------------------------------
+4)
+
+вычисление угла
+
+#include <iostream>
+using namespace std;
+#include <cmath>
+
+
+
+
+
+int main()
+{
+
+    float a = 0;//угол, под которым брошено тело
+    float g = 9.8;
+    float T = 0;//время полета тела
+    float V = 0;//скорость брошеного тела
+
+    cout << "Enter T: ";
+    cin >> T;
+    cout << "Enter V: ";
+    cin >> V;
+
+    a = (g*T) / (2*V);
+    cout << a;
+
+
+
+cout << asin(0.593) * 180.0 / 3.1415;
+
+
+    return 0;
+}
+
+-------------------------
+
+5)
+
+#include <iostream>
+using namespace std;
+
+
+
+//степень числа
+
+int main()
+{
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    cout << "Enter a: ";
+    cin >> a;
+    cout << "Enter b: ";
+    cin >> b;
+
+    if (b == 0)
+    {
+        c = 1;
+    }
+    else
+    {
+        c = a;
+        for (int i = 1; i < b; ++i)
+        {
+             c *= a;
+        }
+    }
+    cout << c;
+
+    return 0;
+}
+--------------------------
+
+6)
+
+дни недели по номеру дня
+
+#include <iostream>
+using namespace std;
+
+
+
+
+
+int main()
+{
+    int a = 0;
+    cin >> a;
+    switch (a)
+    {
+        case 1:cout << "Monday";
+            break;
+        case 2:cout << "Tuesday";
+            break;
+        case 3:cout << "Wednesday";
+            break;
+        case 4:cout << "Thursday";
+            break;
+        case 5:cout << "Friday";
+            break;
+        case 6:cout << "Saturday";
+            break;
+        case 7:cout << "Sunday";
+            break;
+    default: cout << "invalid number";
+        break;
+
+    }
+
+
+    return 0;
+}
+
+
+-------------------------
+
+7)
+
+длина вектора по координатам
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+
+
+
+
+int main()
+{
+int x = 0;
+int y = 0;
+int z = 0;
+cout << "enter x: ";
+cin >> x;
+cout << "enter y: ";
+cin >> y;
+cout << "enter z: ";
+cin >> z;
+cout << "X= " << x << "; Y= " << y << "; Z= " << z << endl;
+cout << sqrt((x * x + y * y + z * z));
+
+    return 0;
+}
+
+----------------------------------
+
+8)
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double pop(double a, int b)//возведение в степень
+{
+    double t = 1;
+    for (int i = 0; i < b; ++i)
+    {
+        t *= a;
+    }
+    return t;
+}
+
+
+int main()
+{
+    const double x1 = -1.1, x2 = 0.3, dx = 0.2;
+    double result = 0;
+//    double x= x1;
+//    while (x < x2)
+//    {
+
+//        for (int m = 1; m < 5; ++m)
+//        {
+//            result = pop(x, m) * pop(sin(x*m), m);
+//            cout << "value function: " << result << "; m= " << m << endl;
+//        }
+
+
+//        x += dx;
+//    }
+
+
+    for (double x = x1; x < x2; x+=dx)
+    {
+        for (int m = 1; m < 5 ; ++m)
+        {
+            result = pop(x,m)*pop(sin(x*m),m);
+             cout << "value function: " << result << "; m= " << m << endl;
+        }
+        cout << "\t\t x = " << x << endl;
+    }
+
+
+
+
+
+
+
+    return 0;
+}
+-------------------------------------
+
+
+9)
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+
+
+
+//сумма квдратов с модулем выше 2.5
+int main()
+{
+    int size = 0;
+    cout << "enter size: ";
+    cin >> size;
+    double arrey [size];
+    cout << "enter values: ";
+    double summ = 0;
+    for (int i = 0; i < size; ++i)
+    {
+
+        cin >> arrey[i];
+
+        if (fabs(arrey[i]) > 2.5)
+        {
+            arrey[i] = pow (arrey[i], 2);
+            summ += arrey[i];
+        }
+    }
+    cout << summ << endl;
+
+    for (int i = 0; i < size; ++i)
+    {
+        cout << i+1 << ") " << arrey[i] << "; " << endl;
+    }
+
+
+    return 0;
+}
+
+-------------------------------------
+
+10)
+
+#include <iostream>
+#include <cmath>
+#define PI 3.14159265
+using namespace std;
+
+
+
+//вычисление значения тиргонометрической функции
+int main()
+{
+    double x = 0;
+    double y = 0;
+    double a = 0;// значение косинуса
+    double b = 0;//значение тангенса
+    cout << "enter count x: ";
+    cin >> x;
+    cout << "enter count y: ";
+    cin >> y;
+    b = tan(x * PI / 180);
+    a = cos((x - y) * PI / 180);
+    cout << pow((1 - b), (1 / b)) + a;
+
+
+
+
+    return 0;
+}
+
+
+-----------------------------------
+
+12)
+
+#include <iostream>//номер четверти плоскости координат
+#include <cmath>
+using namespace std;
+
+
+
+
+int main()
+{
+    //int fourth = 0;
+    int x = 0;
+    int y = 0;
+    cout << "enter coordenats: ";
+    cin >> x;
+    cin >> y;
+    if (x != 0 && y != 0)
+    {
+        if(x > 0 && y > 0)
+            cout << "fourth is 1";
+        else if(x < 0 && y > 0)
+            cout << "fourth is 2";
+        else if(x < 0 && y < 0)
+            cout << "fourth is 3";
+        else if(x > 0 && y < 0)
+            cout << "fourth is 4";
+    }
+
+
+
+
+
+    return 0;
+}
+
+-----------------------------------------
+
+13)
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int residual(int num)
+{
+   return num % 10;
+}
+
+
+int main()
+{
+    int a = 0;
+
+    srand(time(0));
+
+    int a1 = 0;
+    int a2 = 0;
+    int a3 = 0;
+
+    for (int i = 0; i < 5; ++i)
+    {
+
+       a = 100 + rand() % 900;
+       cout << "a = " << a << "; ";
+       a1 = residual(a);
+       cout << "a1 = " <<  a1 << "; ";
+       a2 = residual(a / 10);
+       cout << "a2 = " << a2 << "; ";
+       a3 = a / 100;
+       cout << "a3 = " << a3 << endl;
+
+       if(a1 == a2 || a2 == a3 || a3 == a1)
+           cout << "there are identical numbers";
+       else
+           cout << "nothing";
+       cout << endl << endl;
+
+    }
+
+
+
+
+    return 0;
+}
+
+-------------------------------
+
+14)
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+
+
+int main()
+{
+    char text[] = "dusfhgbn\n  poiysrpoi\n opya\n oe8urt\n oo0\n 90[ewymh\n po9ud[rt9ou#";
+    int count = 0;//счетчик строк
+    int strin = 0;//счетчик символов текста
+
+   while(text[strin] != '#')
+   {
+       if (text[strin] == '\n')
+       {
+           count++;
+       }
+       strin++;
+   }
+
+   cout << "count = " << count;
+
+    return 0;
+}
+-----------------------------------------
+
+15)
+
+
+------------------------------------------
+
+16)
+печать ромба
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+char Switch( )
+{
+    char A;
+    int b = 0;
+    cout << "Enter 1 to 3: ";
+    cin >> b;
+    switch (b)
+    {
+    case 1: A = '#';
+        break;
+    case 2: A = '*';
+        break;
+    case 3: A = '+';
+        break;
+
+    }
+    return A;
+}
+
+
+int main()
+{
+    int num = 0;
+    int t = 0;
+
+   cout << "enter unm: " ;
+   cin >> num;
+   char liter = Switch();;
+
+
+   for (int i = 0; i < num; ++i)
+   {
+
+       for (int j = 0; j < num; ++j)
+       {
+           if(j == ((num/2 ) + t) || j == ((num/2) - t))
+           {
+               cout << liter;
+           }
+           else
+           {
+               cout << ' ';
+           }
+       }
+
+       if(i < num/2)
+       {
+          ++t;
+       }
+       else
+       {
+           --t;
+       }
+
+       cout << endl;
+   }
+
+
+
+
+
+
+
+    return 0;
+}
+
+
+---------------------------------------
+
+17)
+
+неправильно..переделать..тут строка доложна быть
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+
+
+int main()
+{
+    const int size = 5;
+    int arr[size];//массив чисел
+    int p = 0;
+    cout << "enter p 0 to " << size << ": ";
+    cin >> p;
+
+    for (int i = 0; i <size; ++i)
+    {
+        cin >> arr[i] ;
+    }
+
+    cout << "p = " << arr[p-1];
+
+
+    return 0;
+}
+
+-----------------------------------
+
+18)
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+
+
+int main()
+{
+
+
+    cout.unsetf(ios::dec);
+    cout.setf(ios::hex);
+    cout.setf(ios::showbase);
+    int a;
+    cout << "enter a: ";
+    cin >> a;
+    cout << "a in hex = " << a;
+
+
+    return 0;
+}
+
+------------------------------
+
+19)число - полиндром
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+
+
+int main()
+{
+    int num = 0;//исходное число
+     cout << "enter num: ";
+     cin >> num;
+
+     int size = 5;
+     int arr[size];//массив для хранения сравниваемых чисел
+     int n = 10; //индекс деления
+     int num2 = num;//копия исходного числа
+     bool da = true;
+
+     for (int i = 0; i < size ; ++i)
+     {
+         arr[i] = num2 % n;
+         num2 /= n;
+         cout << arr[i] << endl;
+     }
+     for (int i = 0; i < size/2; i++)
+     {
+
+        if(arr[i] != arr[size-(i+1)])
+        {
+            da = false;
+        }
+     }
+
+     if(da)
+     {
+         cout << "number is polidrome";
+     }
+
+        return 0;
+     }
+
+
+
+
+
+
+-------------------------------
+
+21)
+переделать под динамический массив
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+static const int size = 3;
+struct qs
+{
+    string Q;// вопрос
+    int s = size;
+    string ArrAns[size];//массив ответов
+    int q = 0;//вариант ответа пользователя
+    int q1 = 0;//правильный ответ
+
+};
+
+int main()
+{
+    int Rating = 0;
+
+    qs A, B, C;
+    A.Q = "How many cat lives?";
+    A.ArrAns[0] = "-> 5";
+    A.ArrAns[1] = "-> 7";
+    A.ArrAns[2] = "-> 9";
+    A.q1 = 9;
+
+    B.Q = "How many centimeters in a meter?";
+    B.ArrAns[0] = "-> 10 centimeters";
+    B.ArrAns[1] = "-> 100 centimeters";
+    B.ArrAns[2] = "-> 1000 centimeters";
+    B.q1 = 100;
+
+    C.Q = "The speed of sound?";
+    C.ArrAns[0] = "-> 340";
+    C.ArrAns[1] = "-> 320";
+    C.ArrAns[2] = "-> 240";
+    C.q1 = 340;
+
+    qs arr [size] = {A,B,C};
+
+    for (int i = 0; i < size; ++i)
+    {
+        cout << arr[i].Q << endl;
+        cout << "ansvers: " << endl;
+        for (int j = 0; j < size; ++j)
+        {
+            cout << arr[i].ArrAns[j] << endl;
+        }
+        cin >> arr[i].q;
+        if(arr[i].q == arr[i].q1)
+        {
+            Rating++;
+        }
+        cout << "your ansver: " << arr[i].q << endl;
+    }
+
+    cout << "yuor rating = " << Rating << " ballov";
+
+  return 0;
+ }
+
+------------------------------------
+
+22)след матрицы
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+//след матрицы
+
+
+int main()
+{
+    srand(time(0));
+    int rez = 0;//сумма диагонали
+    int row = 0;//
+    cout << "enter size: ";
+    cin >> row;
+    int column = row;
+    int **arr = new int*[row];
+
+    for (int i = 0; i < row; ++i)
+    {
+        arr[i] = new int [column];
+    }
+
+    for (int i = 0; i < row; ++i)
+    {
+        for (int j = 0; j < column; ++j)
+        {
+            arr[i][j] = 1 + rand() % 100;
+            cout << setw(3) << arr[i][j] << "; ";
+            if(i == j)
+            {
+                rez += arr[i][j];
+            }
+        }
+        cout << endl << endl;
+    }
+
+    cout << endl << rez;
+
+    for (int i = 0; i < row; ++i)
+    {
+        delete [] arr[i];
+    }
+
+
+
+
+
+
+  return 0;
+ }
+
+
+--------------------------------
+
+23)
+среднее арифмитическое массива
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+float Rez(float*ARR, int Size)
+{
+    float t = 0;
+    for (int i = 0; i < Size; ++i)
+    {
+        ARR[i] = ( rand() % 10000);
+        cout << ARR[i] / 100 << "; ";
+        t += ARR[i] / 100;
+    }
+
+    return (t * 100) / 100;
+}
+
+int main()
+{
+   srand(time(0));
+   int size = 0;
+   cout << "enter size arr: ";
+   cin >> size;
+   float *arr = new float[size];
+   cout << endl << Rez(arr, size);
+
+   delete [] arr;
+  return 0;
+ }
+
+
+
+
+
+
+
+---------------------------------
+
+24)
+
+
+
+
+
+
+
+
+------------------------------------
+
+25)
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+
+
+int main()
+{
+
+
+
+   int num = 0;
+   cout << " enter num: ";
+   cin >> num;
+   int rez = 0;
+   int num1 = num;
+
+   while((num1 % 5) != 0)
+   {
+       --num1;
+   }
+       rez = num1;
+
+   while (num1 > 5)
+   {
+       num1 -= 5;
+       rez += num1;
+       cout << num1 << "; ";
+   }
+
+cout << endl << rez;
+
+  return 0;
+ }
+
+
+
+
+
+
+
+
+
+
+-----------------------------------
+
+26)
+
+#include <iostream>
+#include <ctime>
+#include <cmath>
+using namespace std;
+
+
+
+int main()
+{
+    int num = 1;
+    cout << "number\t\t\t\t" << "square of number" << endl;
+
+    for (int i = 0; i < 5; ++i)
+    {
+        cout << num << "\t\t\t\t" << pow(num, 2) << endl;
+        num += 1;
+    }
+
+
+
+
+
+
+
+  return 0;
+ }
+
+
+-----------------------------------
+
+27)
+
+
+----------------------------------
+
+28)
+
+----------------------------------
+
+29)
+
+#include <iostream>
+using namespace std;
+
+
+
+int main()
+{
+
+
+    float a = 0;
+    int b = 0;
+    cout << "enter a: ";
+    cin >> a;
+    if(a > 0)
+    {
+        b = a;
+       if((a - b) >0)
+       {
+           cout << "this number is NOT integer";
+       }
+       else
+       {
+           cout << "this number is integer";
+       }
+    }
+
+
+
+
+
+
+  return 0;
+ }
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------
+
+30)
+
+
+#include <iostream>
+using namespace std;
+
+
+
+int main()
+{
+
+
+    int a = 0;
+    do
+    {
+        cout << "enter num: ";
+        cin >> a;
+    } 
+    while (a != 1);
+
+
+
+
+
+  return 0;
+ }
+
+
+
+
+
+
+
+
+
+
+------------------------------------
+
+31)
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+
+
+int main()
+{
+
+    int num = 0;//введенное число
+    int a = 5; //кратное
+    int rez = 0;//сумма чисел
+
+    cout << "enter num: ";
+    cin >> num;
+    int b = num;//копия num
+
+
+
+
+
+    while (a <= num)
+    {
+        if ((num % a) != 0)
+        {
+            num = b - (num %a);
+        }
+
+        rez += num;
+        num -= a;
+    }
+cout << "[" << a << ", " << b << "]";
+cout << endl << rez;
+
+
+  return 0;
+ }
+
+
+
+
+
+
+-----------------------------------
+
+32)
+ шесть треугольников
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void Print(int a, int b)//печать строки
+{
+    cout.width(b);
+    cout.fill(' ');
+        for (int i = 0; i < a; ++i)
+        {
+            cout << '*';
+        }
+}
+
+int main()
+{
+    int A = 1;//количество символов в строке
+    int B = 0;//размер и количество треугольников
+    cout << "enter B: ";
+    cin >> B;
+    int T = B;
+
+        for(int i = 0; i < B; ++i)
+        {
+            for (int j = 0; j < B; ++j)
+            {
+                if(j > 0)
+                {
+                   Print(A, T * 2);
+                }
+                else
+                Print(A, T+1);
+            }
+            A += 2;
+            T--;
+            cout << endl;
+        }
+
+
+
+  return 0;
+ }

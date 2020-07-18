@@ -1,0 +1,67 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <ctime>
+
+using namespace std;
+
+
+int main()
+{
+    srand(time(0));
+    int r1;
+    cin >> r1; cin.ignore();
+
+    long long t1 = 1 + rand() % 20;
+    long long t2 = 1 + rand() % 30;
+    int summ1 = t1;//сумма цифр числа
+    int summ2 = t2;
+
+// cout << t1 << endl << t2 << endl;
+
+        if((r1 >= 1) && (r1 < 100000))
+        {
+            if(t1 < r1 && t2 < r1)
+             {
+                while(t1 < r1 && t2 < r1)
+                 {
+                     if(t1 <= t2 )
+                     {
+                         while (t1 != 0)
+                         {
+                             int i = 10;
+                             summ1 += t1 % i;
+                             t1 = (t1 - (t1 % i)) / i;
+                         }
+                         t1 = summ1;
+
+                     }
+                     else if(t1 >= t2)
+                     {
+                        while (t2 != 0)
+                         {
+                             int i = 10;
+                             summ2 += t2 % i;
+                             t2 = (t2 - (t2 % i)) / i;
+                         }
+                             t2 = summ2;
+
+                     }
+
+                 }
+            }
+
+                 if(t1 == r1)
+                 {
+                     cout << "YES" << endl;
+                 }
+                 else
+                 {
+                     cout << "NO" << endl;
+                 }
+        }
+
+
+    // cout << "YES|NO" << endl;
+}

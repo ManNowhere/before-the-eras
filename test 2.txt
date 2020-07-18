@@ -1,0 +1,119 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+
+
+
+//int main()
+//{
+//    srand(time(0));
+//    int p = 5;
+
+//List One(p);
+//One.Show();
+//One.showC();
+//cout << endl;
+//One.set_elem();
+//One.Show();
+//cout << endl;
+//One.add_elem(2);
+//One.Show();
+//One.showC();
+
+
+
+
+
+//    return 0;
+//}
+
+
+
+////список может содержать нуль или более элем.
+////можно создать пустой список
+////можно проверить пуст ли список
+////можно проверить полон ли список
+//// должен быть доступ к каждому элементу списка
+//// можно добавить элемент, но нельзя удалить
+
+bool exists(int ints [], int size, int k)
+{
+    int first = 0;
+    int last = size - 1;
+    int value = 0;
+    bool one = true;
+
+    for (one = false; (ints[first] < k) && (ints[last] > k) && !one;)
+    {
+        value = first + ((k - ints[first]) * (last - first)) / (ints[last] - ints[first]);
+        if(ints[value] < k)
+        {
+            first = value + 1;
+        }
+        else if(ints[value] > k)
+        {
+            last = value - 1;
+        }
+        else
+        {
+            one = true;
+        }
+    }
+
+    if(ints[first] == k)
+    {
+        one = true;
+        cout << ints[first] << endl;
+    }
+    else if(ints[last] == k)
+    {
+        one = true;
+        cout << ints[last] << endl;
+    }
+    else
+    {
+        one = false;
+    }
+
+
+    return one;
+}
+
+int change(const void * x1, const void * x2)
+{
+    return (*(int*)x1 - *(int*)x2);
+}
+
+int main()
+{
+    srand(time(NULL));
+    const int size = 100000;
+    int its[size];
+    int s;
+    int *ptr = its;
+
+    for (int i = 0; i < size; ++i)
+    {
+        its[i] = rand() % 2000;
+//        cout << its[i] << "; ";
+    }
+    cout << endl;
+
+
+    qsort(ptr, size, sizeof(int), change);
+
+//    for (int i = 0; i < size; ++i)
+//    {
+//        cout << its[i] << "; ";
+//    }
+
+    cout << endl << "enter s: ";
+    cin >> s;
+
+    cout << exists(its, size, s);
+
+
+
+    return 0;
+}

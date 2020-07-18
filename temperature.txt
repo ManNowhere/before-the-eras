@@ -1,0 +1,85 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <conio.h>
+
+using namespace std;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+int main()
+{
+    int t = 0; // величина температуры от -273 дo 5526
+    int result = 5527;
+    int n = 0; //количество температур для анализа
+    cin >> n; cin.ignore();
+
+       if(0 <= n && n < 10000)
+        {
+           if(n == 0)
+           {
+               result = 0;
+           }
+           else
+           {
+             for (int i = 0; i < n; ++i)
+             {
+                cin >> t; cin.ignore();
+                if(-273 <= t && t <= 5526)
+                {
+                    if(t < 0 && result > 0)
+                    {
+                        if(result > (t * -1))
+                        {
+                            result = t;
+                        }
+                        else if(result == (t * -1))
+                        {
+                            result = t * -1;
+                        }
+                    }
+                    else if(t < 0 && result < 0)
+                    {
+                        if(result < t)
+                        {
+                             result = t;
+                        }
+                    }
+                    else if(t > 0 && result < 0)
+                    {
+                        if((result * -1) > t)
+                        {
+                            result = t;
+                        }
+                        else if(result == (t * -1))
+                        {
+                            result = t;
+                        }
+                    }
+                    else if(t > 0 && result > 0)
+                    {
+                        if(result > t)
+                        {
+                            result = t;
+                        }
+                    }
+                }
+                cout << result << endl;
+             }
+        }
+
+
+
+
+
+    cout << to_string(result) << endl;
+
+
+
+
+
+
+}
